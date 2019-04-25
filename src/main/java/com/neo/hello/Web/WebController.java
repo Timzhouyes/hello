@@ -2,8 +2,12 @@ package com.neo.hello.Web;
 
 import com.neo.hello.model.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +15,8 @@ import java.util.List;
 //@Controller
 public class WebController {
 
-    @RequestMapping(value="/changeWholeName")
-    public List<User> changeWholeName(){
+    @RequestMapping(value="/getUsers")
+    public List<User> getUsers(){
         List<User> users =new ArrayList<User>();
         User user1=new User();
         user1.setName("mint1");
@@ -27,7 +31,7 @@ public class WebController {
         return users;
     }
 
-    @PostMapping(value="/getUser123")
+    @PostMapping(value="/getUser")
     public User getUser(){
         User user=new User();
         user.setName("mint");
@@ -43,4 +47,14 @@ public class WebController {
         return name;
     }
 
+    @RequestMapping("/saveUser")
+    public void saveUser (@Valid User user, BindingResult result) {
+        System.out.println("user:" + user);
+        if (result.hasErrors()) {
+            List<ObjectError> list = result.getAllErrors();
+            for (ObjectError error : list) {
+                System.out.println(error.getCode() + "-" + error.getDefaultMessage());
+            }
+        }
+    }
 }
