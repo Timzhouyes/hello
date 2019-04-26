@@ -15,7 +15,7 @@ import java.util.List;
 //@Controller
 public class WebController {
 
-    @RequestMapping(value="/getUsers")
+    @RequestMapping(name="/getUsers")
     public List<User> getUsers(){
         List<User> users =new ArrayList<User>();
         User user1=new User();
@@ -31,7 +31,7 @@ public class WebController {
         return users;
     }
 
-    @PostMapping(value="/getUser")
+    @PostMapping(name="/getUser")
     public User getUser(){
         User user=new User();
         user.setName("mint");
