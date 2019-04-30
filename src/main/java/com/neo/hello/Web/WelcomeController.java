@@ -11,13 +11,13 @@ import java.util.Map;
 @Controller
 public class WelcomeController {
 
-    @GetMapping("/")
-    public String welcome(Map<String,Object> model)
-    {
-        model.put("time", new Date());
-        model.put("message", "hello world");
-        return "welcome";
-    }
+//    @GetMapping("/")
+//    public String welcome(Map<String,Object> model)
+//    {
+//        model.put("time", new Date());
+//        model.put("message", "hello world");
+//        return "welcome";
+//    }
 
     @GetMapping("/user")
     public String user(Map<String,Object> model, HttpServletRequest request)

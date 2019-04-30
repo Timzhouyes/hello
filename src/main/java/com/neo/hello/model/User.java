@@ -15,7 +15,15 @@ public class User {
     @NotEmpty(message = "Password can not be null")
     @Length(min = 6,message = "Password can not shorter than 6 characters")
     private String pass;
+    public User(){
 
+    }
+
+    public User(String name, int age, String pass) {
+        this.name = name;
+        this.age = age;
+        this.pass = pass;
+    }
     public String getName() {
         return name;
     }
