@@ -5,7 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -58,4 +60,50 @@ public class ExampleController {
         map.addAttribute("flag","yes");
         return "eq";
     }
+
+    @RequestMapping("/switch")
+    public String Switch(ModelMap map){
+        map.addAttribute("sex","woman1");
+        return "switch";
+    }
+    @RequestMapping("/inline")
+    public String Inline(ModelMap map)
+    {
+        map.addAttribute("username", "Jetty");
+        return "inline";
+    }
+
+    @RequestMapping("/object")
+    public String object(HttpServletRequest request)
+    {
+        request.setAttribute("request","I am a monster request");
+        request.getSession().setAttribute("session","I am a session");
+//        request.loca
+        return "object";
+    }
+
+    @RequestMapping("/utility")
+    public String utility(ModelMap map)
+    {
+        map.addAttribute("date",new Date());
+
+        return "utility";
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
