@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">//定义命名空间
+
+<head>
+    <meta charset="UTF-8">
+    <title>Basic Object</title>
+</head>
+<body>
+<div>
+    <h1>基本对象</h1>
+    <p th:text="${#request.getAttribute('request')}">
+    <br/>
+    <p th:text="${session.session}"></p>
+    Established locale1 country:<span th:text="${#locale.country}">SIN</span>
+
+</div>
+
+</body>
+</html>
